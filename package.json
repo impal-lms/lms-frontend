@@ -1,0 +1,9 @@
+{
+  "name": "lms-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/impal-lms/lms-frontend.git",
+  "author": "blinfoldking",
+  "license": "MIT",
+  "private": false
+}

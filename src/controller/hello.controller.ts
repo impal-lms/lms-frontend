@@ -13,7 +13,7 @@ class HelloController implements IController {
 
     public sayHello(request: express.Request, response: express.Response) {
         const name = request.params.name;
-        response.render("hello", {
+        response.render("hello_view", {
             name
         });
     }

@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 import * as pinoLogger from "express-pino-logger";
+import session from "express-session";
 import pino from "pino";
 
 import Controller from "./controller";
@@ -30,7 +31,11 @@ class App {
         this.server.use(bodyParser.urlencoded({ extended: true }));
         this.server.set("views", __dirname + "/views");
         this.server.set("view engine", "ejs");
+        this.server.use("/assets", express.static(__dirname + "/views/teacher/assets"));
         this.server.use("/assets", express.static(__dirname + "/assets"));
+        this.server.use(session({
+            secret: "pokoknya rahasia"
+        }));
     }
 
     private initRoute() {

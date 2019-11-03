@@ -32,12 +32,24 @@ class AuthController implements IController {
             password
         )
             .then((res) => {
-                response.send(res.data)
+                request.session.token = res.data.token;
+                request.session.userId = res.data.id;
+                request.session.role = res.data.role;
+                request.session.cookie.expires = new Date(Date.now() + 3600 * 24);
 
-                this.service.GetUserByID(res.data.id)
-                    .then(res => {
-
-                    })
+                const role = res.data.role;
+                switch (role) {
+                    case 0:
+                        response.redirect("/admin");
+                        break;
+                    case 1:
+                        response.redirect("/teacher");
+                        break;
+                    case 2:
+                        response.redirect("/student");
+                    default:
+                        break;
+                }
             })
             .catch((err) => {
                 response.render("login", {

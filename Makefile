@@ -9,4 +9,5 @@ build-image:
 run-image:
 	@docker run --name client -p 4000:4000 ${IMAGE}
 
-
+restart-frontend:
+	@docker-compose restart frontend

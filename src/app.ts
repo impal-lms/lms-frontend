@@ -1,6 +1,8 @@
+import bodyParser from "body-parser";
 import express from "express";
 import * as pinoLogger from "express-pino-logger";
 import pino from "pino";
+
 import Controller from "./controller";
 
 const logger = pino();
@@ -13,8 +15,6 @@ class App {
         private port: number
     ) {
         this.server = express();
-        this.server.set("views", __dirname + "/views");
-        this.server.set("view engine", "ejs");
 
         this.initMiddleware();
         this.initRoute();
@@ -27,12 +27,18 @@ class App {
 
     private initMiddleware() {
         this.server.use(pinoLogger.default());
+        this.server.use(bodyParser.urlencoded({ extended: true }));
+        this.server.set("views", __dirname + "/views");
+        this.server.set("view engine", "ejs");
+        this.server.use("/assets", express.static(__dirname + "/assets"));
     }
 
     private initRoute() {
+        logger.info("hello world");
         for (const controller of this.controllers) {
             logger.info(controller.path);
             this.server.use("/", controller.router);
+            controller.logger = logger;
         }
     }
 }

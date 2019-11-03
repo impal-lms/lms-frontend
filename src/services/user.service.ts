@@ -23,4 +23,10 @@ export default class UserService {
 
         return resp;
     }
+
+    public async GetUserByID(id: number) {
+        const resp = await service
+            .post(`${this.path}/${id}`);
+        return resp
+    }
 }

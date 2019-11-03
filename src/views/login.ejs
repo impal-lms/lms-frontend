@@ -39,6 +39,11 @@
         <div class="form-container">
             <div class="image-holder"></div>
             <form method="post" action="login">
+                <% if (err !== undefined) { %>
+                <div class="alert alert-danger" role="alert">
+                    email or password is wrong
+                </div>
+                <% } %>
                 <h2 class="text-center"><strong>Sign In</strong></h2>
                 <div class="form-group"><input required class="form-control" type="email" name="email"
                         placeholder="Email"></div>

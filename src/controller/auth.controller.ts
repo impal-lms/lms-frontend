@@ -19,7 +19,9 @@ class AuthController implements IController {
     }
 
     public login = (_: express.Request, response: express.Response) => {
-        response.render("login", {});
+        response.render("login", {
+            err: undefined
+        });
     }
 
     public auth = (request: express.Request, response: express.Response) => {
@@ -31,6 +33,11 @@ class AuthController implements IController {
         )
             .then((res) => {
                 response.send(res.data)
+
+                this.service.GetUserByID(res.data.id)
+                    .then(res => {
+
+                    })
             })
             .catch((err) => {
                 response.render("login", {

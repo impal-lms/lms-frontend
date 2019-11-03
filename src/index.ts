@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import App from "./App";
+import App from "./app";
 import HelloController from "./controller/hello.controller";
 
 dotenv.config();

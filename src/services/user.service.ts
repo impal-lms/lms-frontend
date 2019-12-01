@@ -13,9 +13,9 @@ export default class UserService {
         return resp;
     }
 
-    public async CreateUser(user: User) {
+    public async CreateUser(user: User, token: string) {
         const resp = await service
-            .withAuth("")
+            .withAuth(token)
             .withBody({
                 ...user
             })
@@ -25,8 +25,7 @@ export default class UserService {
     }
 
     public async GetUserByID(id: number) {
-        const resp = await service
-            .post(`${this.path}/${id}`);
+        const resp = await service.get(`${this.path}/${id}`);
         return resp;
     }
 }

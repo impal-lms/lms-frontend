@@ -7,7 +7,7 @@ import TeacherController from "./controller/teacher.controller";
 
 dotenv.config();
 
-const PORT = +process.env.PORT || 3000;
+const PORT = +process.env.PORT || 4000;
 
 const app = new App(
     [
@@ -20,3 +20,6 @@ const app = new App(
 );
 
 app.listen();
+
+const BASE_URL = process.env.BASE_URL || "localhost:3000";
+export default BASE_URL;

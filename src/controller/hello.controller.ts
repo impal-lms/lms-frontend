@@ -10,7 +10,7 @@ class HelloController implements IController {
     constructor() {
         this.router = express.Router();
 
-        this.router.get(`${this.path}/:name`, this.sayHello);
+        this.router.get("/:name", this.sayHello);
     }
 
     public sayHello(request: express.Request, response: express.Response) {

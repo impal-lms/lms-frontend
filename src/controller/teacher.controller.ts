@@ -10,7 +10,7 @@ class TeacherController implements IController {
     constructor() {
         this.router = express.Router();
 
-        this.router.use(`${this.path}`, (req, res, next) => {
+        this.router.use("/", (req, res, next) => {
             if (req.session.role === undefined || req.session.role !== 1) {
                 res.redirect("/auth/login");
             }
@@ -18,11 +18,14 @@ class TeacherController implements IController {
             next();
         });
 
-        this.router.get(`${this.path}/`, this.materi);
-        this.router.get(`${this.path}/materi`, this.materi);
-        this.router.get(`${this.path}/materi/upload`, this.uploadMateri);
-
-        this.router.get(`${this.path}/task`, this.task);
+        this.router.get("/", this.materi);
+        this.router.get("/materi", this.materi);
+        this.router.get("/materi/upload", this.uploadMateri);
+        this.router.use(
+            "/assets",
+            express.static(__dirname + "/views/teacher/assets")
+        );
+        this.router.get(`/task`, this.task);
     }
 
     public task = (request: express.Request, response: express.Response) => {
@@ -33,7 +36,10 @@ class TeacherController implements IController {
         response.render("teacher/materi");
     }
 
-    public uploadMateri = (request: express.Request, response: express.Response) => {
+    public uploadMateri = (
+        request: express.Request,
+        response: express.Response
+    ) => {
         response.render("teacher/materi-upload");
     }
 }

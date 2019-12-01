@@ -10,7 +10,7 @@ class AdminController implements IController {
     constructor() {
         this.router = express.Router();
 
-        this.router.use(`${this.path}`, (req, res, next) => {
+        this.router.use("/", (req, res, next) => {
             if (req.session.role === undefined || req.session.role !== 0) {
                 res.redirect("/auth/login");
             }
@@ -18,10 +18,11 @@ class AdminController implements IController {
             next();
         });
 
-        this.router.get(`${this.path}/`, this.home);
+        this.router.get("/", this.home);
     }
 
     public home = (request: express.Request, response: express.Response) => {
+        this.logger.info("masuk");
         response.send(`
             <h1>Hello World</h1>
         `);

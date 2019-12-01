@@ -12,8 +12,8 @@ class AuthController implements IController {
     constructor() {
         this.router = express.Router();
 
-        this.router.get(`${this.path}/login`, this.login);
-        this.router.post(`${this.path}/login`, this.auth);
+        this.router.get("/login", this.login);
+        this.router.post("/login", this.auth);
 
         this.service = new UserService();
     }
@@ -27,17 +27,19 @@ class AuthController implements IController {
     public auth = (request: express.Request, response: express.Response) => {
         const email = request.body.email;
         const password = request.body.password;
-        this.service.Login(
-            email,
-            password
-        )
+        this.service
+            .Login(email, password)
             .then((res) => {
-                request.session.token = res.data.token;
-                request.session.userId = res.data.id;
-                request.session.role = res.data.role;
-                request.session.cookie.expires = new Date(Date.now() + 3600 * 24);
+                request.session.token = res.data.data.token;
+                request.session.userId = res.data.data.id;
+                request.session.role = res.data.data.role;
+                request.session.cookie.expires = new Date(
+                    Date.now() + 3600 * 24
+                );
 
-                const role = res.data.role;
+                this.logger.info(res.data.data);
+
+                const role = res.data.data.role;
                 switch (role) {
                     case 0:
                         response.redirect("/admin");

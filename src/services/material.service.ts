@@ -28,7 +28,7 @@ export default class MaterialService {
     }
 
     public async GetAllMaterial(classroomId: number) {
-        const resp = await service.get(`${this.path}classroom_id=${classroomId}`);
+        const resp = await service.get(`${this.path}?classroom_id=${classroomId}`);
 
         return resp;
     }

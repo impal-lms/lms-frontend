@@ -3,16 +3,9 @@ import Classroom from "./model/classroom";
 
 export default class ClassroomService {
     private path = "/classroom";
-    public async CreateClassroom(
-        label: string,
-        teacherId: number,
-        token: string
-    ) {
+    public async CreateClassroom(classroom: Classroom) {
         const resp = await service
-            .withBody({
-                label,
-                teacher_id: teacherId
-            })
+            .withBody(classroom)
             .post(`${this.path}`);
 
         return resp;

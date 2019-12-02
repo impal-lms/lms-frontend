@@ -4,6 +4,7 @@ IMAGE := lms-frontend\:${TAG}
 .PHONY: build-image run-image
 
 build-image:
+	@yarn install
 	@docker build -f ./Dockerfile -t ${IMAGE} .
 
 run-image:

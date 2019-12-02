@@ -7,7 +7,7 @@ RUN apk update && \
 WORKDIR /client
 COPY . .
 
-RUN npm install
+# RUN npm install
 RUN npm build
 
 CMD [ "npm", "start" ] 

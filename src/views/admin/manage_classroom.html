@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>landing-and-admin</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Header-Dark.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="text-uppercase">
+    <div class="text-primary bg-dark" style="margin-bottom: 30px;">
+        <nav class="navbar navbar-light navbar-expand-md border-dark shadow navigation-clean-button">
+            <div class="container-fluid"><a class="navbar-brand" href="#"><strong>LeMaS</strong><br></a><button
+                    data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                        navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto"></ul><span class="navbar-text actions"> <button
+                            class="btn btn-danger border rounded" type="button"><strong>Sign
+                                Out</strong></button></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- <% if (err !== undefined) { %>
+    <script>
+        alert("<%= err %>")
+    </script>
+    <% } %> -->
+    <div style="margin-bottom: 132px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xl-9">
+                    <div class="border rounded border-light shadow">
+                        <ul class="nav nav-tabs"></ul>
+                        <div class="tab-content"
+                            style="/*border-color: #dee2e6;*/padding: 20px;border-color: rgb(222,226,230);">
+                            <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                <div style="margin: 20px 0;">
+                                    <div class="row">
+                                        <form action="" method="get">
+                                            <select class="col" name="" id="">
+                                                <option value="">Kelas A</option>
+                                            </select><br>
+                                            <input type="submit" class="col btn btn-primary" value="Submit">
+                                        </form>
+                                    </div>
+                                    <div class="row">
+
+                                        <a class="btn btn-info">Add New Classroom</a><br>
+                                    </div>
+                                    <div class="row">
+                                        <a class="btn btn-danger">Delete This Classroom</a><br>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama</th>
+                                                <th>Email</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <select name="" id="">
+                                                        <option value="">Kelas A</option>
+                                                    </select>
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <input type="submit" class="btn btn-primary" value="add user">
+                                                </td>
+                                            </tr>
+                                            <% for(var i=0; i < member.length; i++) { %>
+                                            <tr>
+                                                <td><%= member[i].nama %></td>
+                                                <td><%= member[i].email %></td>
+                                                <td>
+                                                    <a class="btn btn-danger" role="presentation" href="">DELETE</a>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xl-3">
+                    <ul class="list-group shadow">
+                        <li class="list-group-item list-group-item-dark"><span>&nbsp;Manage User</span></li>
+                        <li class="list-group-item"><span>MANAGE ALUMNI</span></li>
+                        <li class="list-group-item"><span>MANAGE PRESENSI</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                        class="icon ion-social-snapchat"></i></a><a href="#"><i
+                        class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
+            </div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Company Name © 2017</p>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -35,6 +35,11 @@ class App {
                 secret: "pokoknya rahasia"
             })
         );
+
+        this.server.use(
+            "/teacher/assets",
+            express.static(__dirname + "/views/teacher/assets")
+        );
     }
 
     private initRoute() {

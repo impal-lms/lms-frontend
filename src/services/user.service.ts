@@ -28,4 +28,10 @@ export default class UserService {
         const resp = await service.get(`${this.path}/${id}`);
         return resp;
     }
+
+    public async GetAllUser() {
+        const resp = await service.get(`${this.path}`);
+        return resp;
+    }
+
 }

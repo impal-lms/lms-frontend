@@ -21,10 +21,7 @@ class TeacherController implements IController {
         this.router.get("/", this.materi);
         this.router.get("/materi", this.materi);
         this.router.get("/materi/upload", this.uploadMateri);
-        this.router.use(
-            "/assets",
-            express.static(__dirname + "/views/teacher/assets")
-        );
+
         this.router.get(`/task`, this.task);
     }
 
